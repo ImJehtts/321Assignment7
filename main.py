@@ -12,6 +12,8 @@ win_counts = df["Winners"].value_counts().reset_index()
 win_counts.columns = ["Country", "Wins"]
 
 app = dash.Dash(__name__)
+server = app.server
+
 app.layout = html.Div([
     html.H1("FIFA Soccer World Cup Dashboard", style={"textAlign": "center"}),
 
@@ -78,4 +80,4 @@ def update_match_result(selected_year):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run_server(debug=True)
